@@ -20,18 +20,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # 输出IP
+      - name: IP
+        run: curl ifconfig.me    
+        
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         
-      - name: list repo
-        run: ls -l
-        
-      # 输出IP
-      - name: IP
-        run: curl ifconfig.me           
+      - name: install v2ray
+        run: ./install.sh
+                             
+      - name: coutinue workflows
+        run:  touch /tmp/continue
         
       - name: Start SSH via tmate
         uses: P3TERX/ssh2actions@main
       
-      - name: coutinue workflow
-        run: touch continue
+     

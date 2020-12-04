@@ -28,7 +28,9 @@ jobs:
       - uses: actions/checkout@v2
         
       - name: install v2ray
-        run: sudo ./install.sh
+        run: |
+          pwd
+          sudo sh ./install.sh
                              
       - name: coutinue workflows
         run: sudo touch /tmp/continue

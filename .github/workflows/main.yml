@@ -30,7 +30,8 @@ jobs:
       - name: install v2ray
         run: |
           chmod +x *.sh
-          sudo sh ./install.sh
+          ls -l
+          sudo ./install.sh
                              
       - name: coutinue workflows
         run: sudo touch /tmp/continue
